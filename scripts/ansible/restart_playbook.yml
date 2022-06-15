@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Update the network
+  connection: ssh
+  hosts: all
+  roles:
+    - name: axia_stop
+    - name: axia_build
+    - name: axia_reset
+    - name: axia_start

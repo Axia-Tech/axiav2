@@ -1,0 +1,29 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=AxiaGo node
+Documentation=https://docs.axc.network/
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory={{ axia_daemon_home_dir }}
+Restart=always
+RestartSec=1
+User={{ axia_daemon_user }}
+ExecStart={{ bindir }}/{{ axia_binary | basename }} \
+{% if axia_daemon_dynamic_public_ip %}
+            --dynamic-public-ip="{{ axia_daemon_dynamic_public_ip }}" \
+{% else %}
+            --public-ip="{{ axia_daemon_public_ip }}" \
+{% endif %}
+            --http-host="{{ axia_daemon_http_host }}" \
+            --db-dir="{{ axia_daemon_db_dir }}" \
+            --log-dir="{{ axia_daemon_log_dir }}" \
+            --log-level="{{ log_level }}" \
+            --staking-tls-cert-file="{{ axia_daemon_staking_tls_cert }}" \
+            --staking-tls-key-file="{{ axia_daemon_staking_tls_key }}"
+
+[Install]
+WantedBy=multi-user.target

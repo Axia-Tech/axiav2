@@ -1,0 +1,18 @@
+[Unit]
+Description=Axia go client
+After=syslog.target network.target
+
+[Service]
+User=axia
+Type=simple
+Environment=HOME=/home/axia
+ExecStart=/usr/local/bin/axiago --config-file /etc/axiago/conf.json
+KillMode=process
+KillSignal=SIGINT
+TimeoutStopSec=90
+Restart=on-failure
+RestartSec=10s
+LimitNOFILE=65000
+
+[Install]
+WantedBy=multi-user.target

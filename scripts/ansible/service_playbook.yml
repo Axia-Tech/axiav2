@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Configure Axia service
+  hosts: axia_nodes
+  roles:
+    - name: axia_download
+    - name: axia_user
+    - name: axia_install
+    - name: axia_staker
+    - name: axia_service

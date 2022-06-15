@@ -1,0 +1,10 @@
+---
+ava_user: axia
+ava_group: admin
+network: mainnet
+db_dir: /data/axiago
+log_dir: /var/log/axiago
+config_dir: /etc/axiago
+plugin_dir: /usr/local/lib/axiago/plugins
+repo_url: https://github.com/Axia-Tech/axiav2
+repo_folder: /tmp/axiago

@@ -1,0 +1,10 @@
+- name: Reload systemd
+  become: true
+  systemd:
+    daemon_reload: true
+
+- name: Restart Axia service
+  become: true
+  service:
+    name: "{{ axia_daemon_service_name }}"
+    state: restarted

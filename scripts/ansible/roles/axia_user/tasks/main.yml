@@ -1,0 +1,14 @@
+- name: Create Axia daemon group
+  become: true
+  group:
+    name: "{{ axia_daemon_group }}"
+    system: true
+
+- name: Create Axia daemon user
+  become: true
+  user:
+    name: "{{ axia_daemon_user }}"
+    group: "{{ axia_daemon_group }}"
+    home: "{{ axia_daemon_home_dir }}"
+    shell: /bin/false
+    system: true

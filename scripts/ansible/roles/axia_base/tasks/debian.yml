@@ -1,0 +1,9 @@
+- name: Install Axia dependencies
+  become: true
+  apt:
+    name:
+      - git
+      # Staking key management
+      - openssl
+      - python3-cryptography
+    state: present
