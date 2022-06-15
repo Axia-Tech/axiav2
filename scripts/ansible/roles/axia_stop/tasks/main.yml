@@ -1,11 +1,11 @@
 - name: Kill Node
-  command: killall -SIGTERM axiago
-  register: killall_axiago
+  command: killall -SIGTERM Axia
+  register: killall_Axia
   changed_when:
-    - "killall_axiago.rc in [0]"
+    - "killall_Axia.rc in [0]"
   failed_when:
-    - "killall_axiago.rc not in [0]"
-    - "killall_axiago.stderr not in ['axiago: no process found']"
+    - "killall_Axia.rc not in [0]"
+    - "killall_Axia.stderr not in ['Axia: no process found']"
 
 - name: Kill EVM
   command: killall -SIGTERM evm

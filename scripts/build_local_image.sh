@@ -17,6 +17,6 @@ source "$AXIA_PATH"/scripts/constants.sh
 full_commit_hash="$(git --git-dir="$AXIA_PATH/.git" rev-parse HEAD)"
 commit_hash="${full_commit_hash::8}"
 
-echo "Building Docker Image with tags: $axiago_dockerhub_repo:$commit_hash , $axiago_dockerhub_repo:$current_branch"
-docker build -t "$axiago_dockerhub_repo:$commit_hash" \
-        -t "$axiago_dockerhub_repo:$current_branch" "$AXIA_PATH" -f "$AXIA_PATH/Dockerfile"
+echo "Building Docker Image with tags: $Axia_dockerhub_repo:$commit_hash , $Axia_dockerhub_repo:$current_branch"
+docker build -t "$Axia_dockerhub_repo:$commit_hash" \
+        -t "$Axia_dockerhub_repo:$current_branch" "$AXIA_PATH" -f "$AXIA_PATH/Dockerfile"

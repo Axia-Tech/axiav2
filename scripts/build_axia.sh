@@ -30,11 +30,11 @@ version_lt() {
 }
 
 if version_lt "$(go_version)" "$go_version_minimum"; then
-    echo "AxiaGo requires Go >= $go_version_minimum, Go $(go_version) found." >&2
+    echo "Axia requires Go >= $go_version_minimum, Go $(go_version) found." >&2
     exit 1
 fi
 
-# Axiago root folder
+# Axia root folder
 AXIA_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd )
 # Load the versions
 source "$AXIA_PATH"/scripts/versions.sh
@@ -43,9 +43,9 @@ source "$AXIA_PATH"/scripts/constants.sh
 
 # Build with rocksdb allowed only if the environment variable ROCKSDBALLOWED is set
 if [ -z ${ROCKSDBALLOWED+x} ]; then
-    echo "Building AxiaGo..."
-    go build -ldflags "-X github.com/Axia-Tech/axiav2/version.GitCommit=$git_commit $static_ld_flags" -o "$axiago_path" "$AXIA_PATH/main/"*.go
+    echo "Building Axia..."
+    go build -ldflags "-X github.com/Axia-Tech/axiav2/version.GitCommit=$git_commit $static_ld_flags" -o "$Axia_path" "$AXIA_PATH/main/"*.go
 else
-    echo "Building AxiaGo with rocksdb enabled..."
-    go build -tags rocksdballowed -ldflags "-X github.com/Axia-Tech/axiav2/version.GitCommit=$git_commit $static_ld_flags" -o "$axiago_path" "$AXIA_PATH/main/"*.go
+    echo "Building Axia with rocksdb enabled..."
+    go build -tags rocksdballowed -ldflags "-X github.com/Axia-Tech/axiav2/version.GitCommit=$git_commit $static_ld_flags" -o "$Axia_path" "$AXIA_PATH/main/"*.go
 fi

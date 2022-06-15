@@ -81,7 +81,7 @@ func GetRunnerConfig(v *viper.Viper) (runner.Config, error) {
 	// Build directory should have this structure:
 	//
 	// build
-	// ├── axiago (the binary from compiling the app directory)
+	// ├── Axia (the binary from compiling the app directory)
 	// └── plugins
 	//     └── evm
 	validBuildDir := func(dir string) bool {

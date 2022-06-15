@@ -18,17 +18,17 @@ RUN go mod download
 # Copy the code into the container
 COPY . .
 
-# Build axiago and plugins
+# Build Axia and plugins
 RUN ./scripts/build.sh
 
 # ============= Cleanup Stage ================
 FROM debian:11-slim AS execution
 
 # Maintain compatibility with previous images
-RUN mkdir -p /axiago/build
-WORKDIR /axiago/build
+RUN mkdir -p /Axia/build
+WORKDIR /Axia/build
 
 # Copy the executables into the container
 COPY --from=builder /build/build/ .
 
-CMD [ "./axiago" ]
+CMD [ "./Axia" ]

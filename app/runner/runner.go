@@ -18,9 +18,9 @@ import (
 	appplugin "github.com/Axia-Tech/axiav2/app/plugin"
 )
 
-// Run an AxiaGo node.
+// Run an Axia node.
 // If specified in the config, serves a hashicorp plugin that can be consumed by
-// the daemon (see axiago/main).
+// the daemon (see Axia/main).
 func Run(config Config, nodeConfig node.Config) {
 	nodeApp := process.NewApp(nodeConfig) // Create node wrapper
 	if config.PluginMode {                // Serve as a plugin

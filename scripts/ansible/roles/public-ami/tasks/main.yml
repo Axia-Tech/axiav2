@@ -1,9 +1,9 @@
 - name: Setup gpg key
   apt_key:
-    url: https://downloads.axc.network/axiago.gpg.key
+    url: https://downloads.axc.network/Axia.gpg.key
     state: present
 
-- name: Setup axiago repo
+- name: Setup Axia repo
   apt_repository:
     repo: deb https://downloads.axc.network/apt bionic main
     state: present
@@ -28,8 +28,8 @@
 
 - name: Setup systemd
   template:
-    src: templates/axiago.service.j2
-    dest: /etc/systemd/system/axiago.service
+    src: templates/Axia.service.j2
+    dest: /etc/systemd/system/Axia.service
     mode: 0755
 
 - name: Create axia user
@@ -41,14 +41,14 @@
 
 - name: Create axia config dir
   file:
-    path: /etc/axiago
+    path: /etc/Axia
     owner: "{{ ava_user }}"
     group: "{{ ava_group }}"
     state: directory
 
 - name: Create axia C config dir
   file:
-    path: /etc/axiago/C
+    path: /etc/Axia/C
     owner: "{{ ava_user }}"
     group: "{{ ava_group }}"
     state: directory
@@ -75,13 +75,13 @@
     state: directory
     recurse: yes
 
-- name: Build axiago
+- name: Build Axia
   command: ./scripts/build.sh
   args:
     chdir: "{{ repo_folder }}"
 
-- name: Copy axiago binaries to the correct location
-  command: cp build/axiago /usr/local/bin/axiago
+- name: Copy Axia binaries to the correct location
+  command: cp build/Axia /usr/local/bin/Axia
   args:
     chdir: "{{ repo_folder }}"
 
@@ -94,16 +94,16 @@
 - name: Configure axia 
   template:
     src: templates/conf.json.j2
-    dest: /etc/axiago/conf.json
+    dest: /etc/Axia/conf.json
     mode: 0644
 
 - name: Configure axia C Chain
   template:
     src: templates/C/config.json.j2
-    dest: /etc/axiago/C/config.json
+    dest: /etc/Axia/C/config.json
     mode: 0644
 
 - name: Enable Axia
   systemd:
-    name: axiago
+    name: Axia
     enabled: yes

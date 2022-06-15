@@ -4,11 +4,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-echo "Building docker image based off of most recent local commits of axiago and coreth"
+echo "Building docker image based off of most recent local commits of Axia and coreth"
 
-AXIA_REMOTE="git@github.com:ava-labs/axiago.git"
+AXIA_REMOTE="git@github.com:ava-labs/Axia.git"
 CORETH_REMOTE="git@github.com:ava-labs/coreth.git"
-DOCKERHUB_REPO="avaplatform/axiago"
+DOCKERHUB_REPO="avaplatform/Axia"
 
 DOCKER="${DOCKER:-docker}"
 SCRIPT_DIRPATH=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
@@ -21,7 +21,7 @@ export GOPATH="$SCRIPT_DIRPATH/.build_image_gopath"
 WORKPREFIX="$GOPATH/src/github.com/ava-labs"
 
 # Clone the remotes and checkout the desired branch/commits
-AXIA_CLONE="$WORKPREFIX/axiago"
+AXIA_CLONE="$WORKPREFIX/Axia"
 CORETH_CLONE="$WORKPREFIX/coreth"
 
 # Replace the WORKPREFIX directory
@@ -29,7 +29,7 @@ rm -rf "$WORKPREFIX"
 mkdir -p "$WORKPREFIX"
 
 
-AXIA_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/axiago" rev-parse --short HEAD)"
+AXIA_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/Axia" rev-parse --short HEAD)"
 CORETH_COMMIT_HASH="$(git -C "$EXISTING_GOPATH/$AVA_LABS_RELATIVE_PATH/coreth" rev-parse --short HEAD)"
 
 git config --global credential.helper cache

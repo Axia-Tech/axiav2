@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 
 [Unit]
-Description=AxiaGo node
+Description=Axia node
 Documentation=https://docs.axc.network/
 After=network.target
 StartLimitIntervalSec=0

@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Axiago root folder
+# Axia root folder
 AXIA_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd )
 # Load the versions
 source "$AXIA_PATH"/scripts/versions.sh
@@ -15,14 +15,14 @@ source "$AXIA_PATH"/scripts/constants.sh
 echo "Downloading dependencies..."
 go mod download
 
-# Build axiago
+# Build Axia
 "$AXIA_PATH"/scripts/build_axia.sh
 
 # Build coreth
 "$AXIA_PATH"/scripts/build_coreth.sh
 
 # Exit build successfully if the binaries are created
-if [[ -f "$axiago_path" && -f "$evm_path" ]]; then
+if [[ -f "$Axia_path" && -f "$evm_path" ]]; then
         echo "Build Successful"
         exit 0
 else

@@ -5,12 +5,12 @@ set -o nounset
 set -o pipefail
 
 # Note: this script will build a docker image by cloning a remote version of
-# axiago into a temporary location and using that version's Dockerfile to
+# Axia into a temporary location and using that version's Dockerfile to
 # build the image.
 
 SRC_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
-DOCKERHUB_REPO="avaplatform/axiago"
+DOCKERHUB_REPO="avaplatform/Axia"
 REMOTE="https://github.com/Axia-Tech/axiav2.git"
 BRANCH="master"
 
@@ -39,7 +39,7 @@ if [[ "$keep_existing" != 1 ]]; then
 fi
 
 # Clone the remote and checkout the specified branch to build the Docker image
-AXIA_CLONE="$WORKPREFIX/axiago"
+AXIA_CLONE="$WORKPREFIX/Axia"
 
 if [[ ! -d "$WORKPREFIX" ]]; then
     mkdir -p "$WORKPREFIX"

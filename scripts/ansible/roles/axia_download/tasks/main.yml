@@ -1,17 +1,17 @@
 - name: Query releases
   uri:
     url: "{{ repo_api_base }}/repos{{ repo_url | urlsplit('path') }}/releases"
-  register: axiago_releases
+  register: Axia_releases
   changed_when: false
   check_mode: false
 
 - name: Fetch release
   get_url:
-    url: "{{ repo_url }}/releases/download/{{ axiago_version }}/{{ item.file }}"
+    url: "{{ repo_url }}/releases/download/{{ Axia_version }}/{{ item.file }}"
     dest: ./
   loop:
-    - file: "{{ axiago_archive }}"
-    - file: "{{ axiago_archive }}.sig"
+    - file: "{{ Axia_archive }}"
+    - file: "{{ Axia_archive }}.sig"
   loop_control:
     label: "{{ item.file }}"
 
@@ -28,13 +28,13 @@
         GNUPGHOME: "{{ axia_download_gnupghome.path }}"
       command:
         cmd: gpg --import
-        stdin: "{{ axiago_signer_pubkey }}"
+        stdin: "{{ Axia_signer_pubkey }}"
 
     - name: Verify signature
       environment:
         GNUPGHOME: "{{ axia_download_gnupghome.path }}"
       command:
-        cmd: gpg --trusted-key "{{ axiago_signer_keyid }}" --verify "{{ axiago_archive }}.sig" "{{ axiago_archive }}"
+        cmd: gpg --trusted-key "{{ Axia_signer_keyid }}" --verify "{{ Axia_archive }}.sig" "{{ Axia_archive }}"
       changed_when: false
   always:
     - name: Cleanup temp gnupghome
@@ -44,10 +44,10 @@
 
 - name: Unpack release
   unarchive:
-    src: "{{ axiago_archive }}"
+    src: "{{ Axia_archive }}"
     dest: ./
     remote_src: true
   loop:
-    - file: "{{ axiago_archive }}"
+    - file: "{{ Axia_archive }}"
   loop_control:
     label: "{{ item.file }}"

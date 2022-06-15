@@ -34,7 +34,7 @@ func TestE2E(t *testing.T) {
 
 var (
 	logLevel            string
-	axiagoLogLevel string
+	AxiaLogLevel string
 
 	networkRunnerGRPCEp string
 	execPath            string
@@ -53,10 +53,10 @@ func init() {
 		"log level",
 	)
 	flag.StringVar(
-		&axiagoLogLevel,
-		"axiago-log-level",
+		&AxiaLogLevel,
+		"Axia-log-level",
 		"INFO",
-		"axiagoLogLevel log level (optional, only required for local network-runner)",
+		"AxiaLogLevel log level (optional, only required for local network-runner)",
 	)
 
 	flag.StringVar(
@@ -67,9 +67,9 @@ func init() {
 	)
 	flag.StringVar(
 		&execPath,
-		"axiago-path",
+		"Axia-path",
 		"",
-		"[optional] axiago executable path (only required for local network-runner tests)",
+		"[optional] Axia executable path (only required for local network-runner tests)",
 	)
 
 	// TODO: set timestamp on the test network machines to be more realistic
@@ -111,7 +111,7 @@ var _ = ginkgo.BeforeSuite(func() {
 
 		tests.Outf("{{magenta}}starting network-runner with %q{{/}}\n", execPath)
 		ctx, cancel = context.WithTimeout(context.Background(), 15*time.Second)
-		resp, err := runnerCli.Start(ctx, execPath, runner_client.WithLogLevel(axiagoLogLevel))
+		resp, err := runnerCli.Start(ctx, execPath, runner_client.WithLogLevel(AxiaLogLevel))
 		cancel()
 		gomega.Expect(err).Should(gomega.BeNil())
 		tests.Outf("{{green}}successfully started network-runner :{{/}} %+v\n", resp.ClusterInfo.NodeNames)

@@ -15,11 +15,11 @@ FROM golang:1.17.9-buster
 RUN mkdir -p /go/src/github.com/ava-labs
 
 WORKDIR $GOPATH/src/github.com/ava-labs
-COPY axiago axiago
+COPY Axia Axia
 COPY coreth coreth
 
 WORKDIR $GOPATH/src/github.com/Axia-Tech/axiav2
 RUN ./scripts/build_axia.sh
 RUN ./scripts/build_coreth.sh ../coreth $PWD/build/plugins/evm
 
-RUN ln -sv $GOPATH/src/github.com/ava-labs/axia-byzantine/ /axiago
+RUN ln -sv $GOPATH/src/github.com/ava-labs/axia-byzantine/ /Axia

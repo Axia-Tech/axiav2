@@ -17,7 +17,7 @@ import (
 )
 
 // protocolVersion should be bumped anytime changes are made which require
-// the plugin vm to upgrade to latest axiago release to be compatible.
+// the plugin vm to upgrade to latest Axia release to be compatible.
 const protocolVersion = 14
 
 var (

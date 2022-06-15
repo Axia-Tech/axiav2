@@ -19,7 +19,7 @@ This version is backwards compatible to [v1.7.0](https://github.com/Axia-Tech/ax
 ### Metrics
 
 - Added leveldb metrics
-- Added process and golang metrics for the axiago binary
+- Added process and golang metrics for the Axia binary
 - Added available disk space health check
   - Ensured that the disk space will not be fully utilized by shutting down the node if there is a critically low amount of free space remaining
 - Improved C-chain state sync metrics
@@ -101,8 +101,8 @@ This version is backwards compatible to [v1.7.0](https://github.com/Axia-Tech/ax
 
 ### Logging
 
-- Replaced AxiaGo's internal logger with [uber-go/zap](https://github.com/uber-go/zap).
-- Replaced AxiaGo's log rotation with [lumberjack](https://github.com/natefinch/lumberjack).
+- Replaced Axia's internal logger with [uber-go/zap](https://github.com/uber-go/zap).
+- Replaced Axia's log rotation with [lumberjack](https://github.com/natefinch/lumberjack).
 - Renamed `log-display-highlight` to `log-format` and added `json` option.
 - Added `log-rotater-max-size`, `log-rotater-max-files`, `log-rotater-max-age`, `log-rotater-compress-enabled` options for log rotation.
 
@@ -113,8 +113,8 @@ This version is backwards compatible to [v1.7.0](https://github.com/Axia-Tech/ax
 - Logged health checks whenever a failing health check is queried
 - Added callback support for the validator set manager
 - Increased `coreth` trie tip buffer size to 32
-- Added CPU usage metrics for AxiaGo and all sub-processes
-- Added Disk IO usage metrics for AxiaGo and all sub-processes
+- Added CPU usage metrics for Axia and all sub-processes
+- Added Disk IO usage metrics for Axia and all sub-processes
 
 ### Cleanup
 
@@ -162,14 +162,14 @@ This version is backwards compatible to [v1.7.0](https://github.com/Axia-Tech/ax
 
 - Fixed a bug where a deadlock on shutdown caused historical re-generation on restart.
 - Added an API endpoint to fetch the current VM Config.
-- Added AxiaGo custom log formatting to the logs.
+- Added Axia custom log formatting to the logs.
 - Removed support for the JS Tracer.
 
 ### Logging
 
 - Added piping of subnet logs to stdout.
 - Lazily initialized logs to avoid opening files that are never written to.
-- Added support for arbitrarily deleted log files while axiago is running.
+- Added support for arbitrarily deleted log files while Axia is running.
 - Removed redundant logging configs.
 
 ### Miscellaneous
@@ -423,7 +423,7 @@ This version is backwards compatible to [v1.7.0](https://github.com/Axia-Tech/ax
 
 - Notified VMs of peer versions on `Connected`.
 - Fixed acceptance broadcasting over IPC.
-- Fixed 32-bit architecture builds for AxiaGo (not Coreth).
+- Fixed 32-bit architecture builds for Axia (not Coreth).
 
 ## [v1.7.2](https://github.com/Axia-Tech/axiav2/releases/tag/v1.7.2)
 

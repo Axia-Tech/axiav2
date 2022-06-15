@@ -2,5 +2,5 @@ axia_daemon_dynamic_public_ip: ifconfigme
 axia_daemon_http_host: localhost
 # This variable is ignored, if axia_daemon_dynamic_public_ip is not false
 axia_daemon_public_ip: "{{ ansible_facts.default_ipv4.address }}"
-axia_daemon_service_name: axiago
+axia_daemon_service_name: Axia
 log_level: info

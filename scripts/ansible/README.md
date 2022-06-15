@@ -1,7 +1,7 @@
-# Ansible for AxiaGo
+# Ansible for Axia
 
 [Ansible](https://ansible.com) playbooks, roles, & inventories to install
-[AxiaGo](https://github.com/Axia-Tech/axiav2) as a systemd service.
+[Axia](https://github.com/Axia-Tech/axiav2) as a systemd service.
 Target(s) can be
 
 - localhost
@@ -13,17 +13,17 @@ Target(s) can be
 
 ## Using
 
-To create an AxiaGo service on localhost
+To create an Axia service on localhost
 
 1. Check you have Ansible 2.9+ (see [Installing](#installing))
-2. Clone the AxiaGo git repository
+2. Clone the Axia git repository
     ```
     $ git clone https://github.com/Axia-Tech/axiav2
     ```
 
 3. Change to this directory
     ```
-    $ cd axiago/scripts/ansible
+    $ cd Axia/scripts/ansible
     ```
 
 4. Run the service playbook
@@ -42,13 +42,13 @@ To create an AxiaGo service on localhost
 
 5. Check the service is running
     ```
-    $ systemctl status axiago
+    $ systemctl status Axia
     ```
 
     The output should look similar to
     ```
-    ● axiago.service - AxiaGo node for Axia consensus network
-    Loaded: loaded (/etc/systemd/system/axiago.service; enabled; vendor preset: enabled)
+    ● Axia.service - Axia node for Axia consensus network
+    Loaded: loaded (/etc/systemd/system/Axia.service; enabled; vendor preset: enabled)
     Active: active (running) since Wed 2020-10-21 10:00:00 UTC; 32s ago
     ...
     ```
@@ -136,8 +136,8 @@ TASK [axia_download : Query releases] *************************************
 ok: [localhost]
 
 TASK [axia_download : Fetch release] **************************************
-changed: [localhost] => (item=axiago-linux-arm64-v1.5.0.tar.gz)
-changed: [localhost] => (item=axiago-linux-arm64-v1.5.0.tar.gz.sig)
+changed: [localhost] => (item=Axia-linux-arm64-v1.5.0.tar.gz)
+changed: [localhost] => (item=Axia-linux-arm64-v1.5.0.tar.gz.sig)
 
 TASK [axia_download : Create temp gnupghome] ******************************
 changed: [localhost]
@@ -152,7 +152,7 @@ TASK [axia_download : Cleanup temp gnupghome] *****************************
 changed: [localhost]
 
 TASK [axia_download : Unpack release] *************************************
-changed: [localhost] => (item=axiago-linux-arm64-v1.5.0.tar.gz)
+changed: [localhost] => (item=Axia-linux-arm64-v1.5.0.tar.gz)
 
 TASK [axia_user : Create Axia daemon group] **************************
 changed: [localhost]
@@ -166,22 +166,22 @@ changed: [localhost] => (item={'path': '/var/local/lib'})
 changed: [localhost] => (item={'path': '/var/local/log'})
 
 TASK [axia_install : Create Axia directories] ************************
-changed: [localhost] => (item=/var/local/lib/axiago)
-changed: [localhost] => (item=/var/local/lib/axiago/db)
-changed: [localhost] => (item=/var/local/lib/axiago/staking)
-changed: [localhost] => (item=/var/local/log/axiago)
-changed: [localhost] => (item=/usr/local/lib/axiago)
+changed: [localhost] => (item=/var/local/lib/Axia)
+changed: [localhost] => (item=/var/local/lib/Axia/db)
+changed: [localhost] => (item=/var/local/lib/Axia/staking)
+changed: [localhost] => (item=/var/local/log/Axia)
+changed: [localhost] => (item=/usr/local/lib/Axia)
 
 TASK [axia_install : Install Axia binary] ****************************
 changed: [localhost]
 
 TASK [axia_install : Remove outdated support files] **********************
-ok: [localhost] => (item={'path': '/usr/local/lib/axiago/evm'})
-ok: [localhost] => (item={'path': '/usr/local/lib/axiago/axiago-preupgrade'})
-ok: [localhost] => (item={'path': '/usr/local/lib/axiago/axiago-latest'})
+ok: [localhost] => (item={'path': '/usr/local/lib/Axia/evm'})
+ok: [localhost] => (item={'path': '/usr/local/lib/Axia/Axia-preupgrade'})
+ok: [localhost] => (item={'path': '/usr/local/lib/Axia/Axia-latest'})
 
 TASK [axia_install : Install support files] *******************************
-changed: [localhost] => (item=/usr/local/lib/axiago/plugins)
+changed: [localhost] => (item=/usr/local/lib/Axia/plugins)
 
 TASK [axia_staker : Create staking key] ***********************************
 changed: [localhost]

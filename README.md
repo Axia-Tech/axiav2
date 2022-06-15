@@ -20,7 +20,7 @@ The minimum recommended hardware specification for nodes connected to Mainnet is
 - OS: Ubuntu 18.04/20.04 or macOS >= 10.15 (Catalina)
 - Network: Reliable IPv4 or IPv6 network connection, with an open public port.
 
-If you plan to build AxiaGo from source, you will also need the following software:
+If you plan to build Axia from source, you will also need the following software:
 
 - [Go](https://golang.org/doc/install) version >= 1.17.9
 - [gcc](https://gcc.gnu.org/)
@@ -28,11 +28,11 @@ If you plan to build AxiaGo from source, you will also need the following softwa
 
 ### Native Install
 
-Clone the AxiaGo repository:
+Clone the Axia repository:
 
 ```sh
-git clone git@github.com:ava-labs/axiago.git
-cd axiago
+git clone git@github.com:ava-labs/Axia.git
+cd Axia
 ```
 
 This will clone and checkout to `master` branch.
@@ -45,11 +45,11 @@ Build Axia using the build script:
 ./scripts/build.sh
 ```
 
-The Axia binary, named `axiago`, is in the `build` directory.
+The Axia binary, named `Axia`, is in the `build` directory.
 
 ### Binary Repository
 
-Install AxiaGo using an `apt` repository.
+Install Axia using an `apt` repository.
 
 #### Adding the APT Repository
 
@@ -59,7 +59,7 @@ To add the repository on Ubuntu 18.04 (Bionic), run:
 
 ```sh
 sudo su -
-wget -O - https://downloads.axc.network/axiago.gpg.key | apt-key add -
+wget -O - https://downloads.axc.network/Axia.gpg.key | apt-key add -
 echo "deb https://downloads.axc.network/apt bionic main" > /etc/apt/sources.list.d/axia.list
 exit
 ```
@@ -68,31 +68,31 @@ To add the repository on Ubuntu 20.04 (Focal), run:
 
 ```sh
 sudo su -
-wget -O - https://downloads.axc.network/axiago.gpg.key | apt-key add -
+wget -O - https://downloads.axc.network/Axia.gpg.key | apt-key add -
 echo "deb https://downloads.axc.network/apt focal main" > /etc/apt/sources.list.d/axia.list
 exit
 ```
 
 #### Installing the Latest Version
 
-After adding the APT repository, install axiago by running:
+After adding the APT repository, install Axia by running:
 
 ```sh
 sudo apt update
-sudo apt install axiago
+sudo apt install Axia
 ```
 
 ### Binary Install
 
 Download the [latest build](https://github.com/Axia-Tech/axiav2/releases/latest) for your operating system and architecture.
 
-The Axia binary to be executed is named `axiago`.
+The Axia binary to be executed is named `Axia`.
 
 ### Docker Install
 
 Make sure docker is installed on the machine - so commands like `docker run` etc. are available.
 
-Building the docker image of latest axiago branch can be done by running:
+Building the docker image of latest Axia branch can be done by running:
 
 ```sh
 ./scripts/build_image.sh
@@ -104,10 +104,10 @@ To check the built image, run:
 docker image ls
 ```
 
-The image should be tagged as `avaplatform/axiago:xxxxxxxx`, where `xxxxxxxx` is the shortened commit of the Axia source it was built from. To run the axia node, run:
+The image should be tagged as `avaplatform/Axia:xxxxxxxx`, where `xxxxxxxx` is the shortened commit of the Axia source it was built from. To run the axia node, run:
 
 ```sh
-docker run -ti -p 9650:9650 -p 9651:9651 avaplatform/axiago:xxxxxxxx /axiago/build/axiago
+docker run -ti -p 9650:9650 -p 9651:9651 avaplatform/Axia:xxxxxxxx /Axia/build/Axia
 ```
 
 ## Running Axia
@@ -117,7 +117,7 @@ docker run -ti -p 9650:9650 -p 9651:9651 avaplatform/axiago:xxxxxxxx /axiago/bui
 To connect to the Axia Mainnet, run:
 
 ```sh
-./build/axiago
+./build/Axia
 ```
 
 You should see some pretty ASCII art and log messages.
@@ -129,7 +129,7 @@ You can use `Ctrl+C` to kill the node.
 To connect to the Fuji Testnet, run:
 
 ```sh
-./build/axiago --network-id=fuji
+./build/Axia --network-id=fuji
 ```
 
 ### Creating a Local Testnet
@@ -140,7 +140,7 @@ See [this tutorial.](https://docs.axc.network/build/tutorials/platform/create-a-
 
 A node needs to catch up to the latest network state before it can participate in consensus and serve API calls. This process, called bootstrapping, currently takes several days for a new node connected to Mainnet.
 
-A node will not [report healthy](https://docs.axc.network/build/axiago-apis/health) until it is done bootstrapping.
+A node will not [report healthy](https://docs.axc.network/build/Axia-apis/health) until it is done bootstrapping.
 
 Improvements that reduce the amount of time it takes to bootstrap are under development.
 
@@ -148,7 +148,7 @@ The bottleneck during bootstrapping is typically database IO. Using a more power
 
 ## Generating Code
 
-Axiago uses multiple tools to generate efficient and boilerplate code.
+Axia uses multiple tools to generate efficient and boilerplate code.
 
 ### Running protobuf codegen
 
@@ -191,7 +191,7 @@ docker run -t -i -v $(pwd):/opt/axia -w/opt/axia axia:protobuf_codegen bash -c "
 
 ## Supported Platforms
 
-AxiaGo can run on different platforms, with different support tiers:
+Axia can run on different platforms, with different support tiers:
 
 - **Tier 1**: Fully supported by the maintainers, guaranteed to pass all tests including e2e and stress tests.
 - **Tier 2**: Passes all unit and integration tests but not necessarily e2e tests.
@@ -199,7 +199,7 @@ AxiaGo can run on different platforms, with different support tiers:
 - **Not supported**: May not build and not tested, considered _unsafe_. To be supported in the future.
 
 The following table lists currently supported platforms and their corresponding
-AxiaGo support tiers:
+Axia support tiers:
 
 | Architecture | Operating system | Support tier  |
 | :----------: | :--------------: | :-----------: |
@@ -213,7 +213,7 @@ AxiaGo support tiers:
 
 To officially support a new platform, one must satisfy the following requirements:
 
-| AxiaGo continuous integration | Tier 1  | Tier 2  | Tier 3  |
+| Axia continuous integration | Tier 1  | Tier 2  | Tier 3  |
 | ---------------------------------- | :-----: | :-----: | :-----: |
 | Build passes                       | &check; | &check; | &check; |
 | Unit and integration tests pass    | &check; | &check; |         |

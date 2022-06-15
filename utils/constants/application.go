@@ -9,5 +9,5 @@ const (
 	PlatformName = "axia"
 
 	// AppName exports the name of the axia application
-	AppName = "axiago"
+	AppName = "Axia"
 )

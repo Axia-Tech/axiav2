@@ -11,22 +11,22 @@ AXIA_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd ) # Directory a
 GOPATH="$(go env GOPATH)"
 coreth_path="$GOPATH/pkg/mod/github.com/ava-labs/coreth@$coreth_version"
 
-# Where AxiaGo binary goes
+# Where Axia binary goes
 build_dir="$AXIA_PATH/build"
-axiago_path="$build_dir/axiago"
+Axia_path="$build_dir/Axia"
 plugin_dir="$build_dir/plugins"
 evm_path="$plugin_dir/evm"
 
 # Avalabs docker hub
-# avaplatform/axiago - defaults to local as to avoid unintentional pushes
-# You should probably set it - export DOCKER_REPO='avaplatform/axiago'
-axiago_dockerhub_repo=${DOCKER_REPO:-"axiago"}
+# avaplatform/Axia - defaults to local as to avoid unintentional pushes
+# You should probably set it - export DOCKER_REPO='avaplatform/Axia'
+Axia_dockerhub_repo=${DOCKER_REPO:-"Axia"}
 
 # Current branch
 # TODO: fix "fatal: No names found, cannot describe anything" in github CI
 current_branch=$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match || true)
 
-git_commit=${AXIAGO_COMMIT:-$( git rev-list -1 HEAD )}
+git_commit=${AXIA_COMMIT:-$( git rev-list -1 HEAD )}
 
 # Static compilation
 static_ld_flags=''

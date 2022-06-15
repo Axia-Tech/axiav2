@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Axiago root folder
+# Axia root folder
 AXIA_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )"; cd .. && pwd )
 # Load the versions
 source "$AXIA_PATH"/scripts/versions.sh

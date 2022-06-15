@@ -11,14 +11,14 @@ sharedstatedir: "{{ localstatedir }}/lib"
 # Has no Meson builtin equivalent
 logdir: "{{ localstatedir }}/log"
 
-axia_binary: "{{ axia_binaries_dir }}/axiago"
+axia_binary: "{{ axia_binaries_dir }}/Axia"
 
 # These names are specific to Axia. Default values are based loosely on *nix
 # conventions.
-axia_daemon_home_dir: "{{ sharedstatedir }}/axiago"
+axia_daemon_home_dir: "{{ sharedstatedir }}/Axia"
 axia_daemon_db_dir: "{{ axia_daemon_home_dir }}/db"
-axia_daemon_log_dir: "{{ logdir }}/axiago"
-axia_daemon_lib_dir: "{{ libdir }}/axiago"
+axia_daemon_log_dir: "{{ logdir }}/Axia"
+axia_daemon_lib_dir: "{{ libdir }}/Axia"
 axia_daemon_staking_dir: "{{ axia_daemon_home_dir }}/staking"
 axia_daemon_staking_tls_cert: "{{ axia_daemon_staking_dir }}/staker.crt"
 axia_daemon_staking_tls_csr: "{{ axia_daemon_staking_dir }}/staker.csr"
